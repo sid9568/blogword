@@ -14,12 +14,10 @@
 <div class="w3-row w3-margin">
 
 <div class="w3-third">
-  <a href=""> <%=image_tag post.image.present? ? post.image : "https://res.cloudinary.com/learn-autism/image/upload/v1651053287/Category%20Image/cudlpoesuxyi8tn4hsrv.jpg",style:"width:60%;min-height:200px"%></a>
-
- <%#= post.image.present? ?  post.image : "No image",style:"width:60%;min-height:200px"%>
+<a href=""> <%=image_tag post.image.present? ? post.image : "https://res.cloudinary.com/learn-autism/image/upload/v1651053287/Category%20Image/cudlpoesuxyi8tn4hsrv.jpg",style:"width:60%;min-height:200px"%></a>
+ 
  </div>
  
-
 <div class="w3-twothird w3-container">
   <h2><%= link_to post.title%></h2>
   <p>

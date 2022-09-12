@@ -16,7 +16,7 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
-  config.active_storage.service = :local
+  
   config.active_storage.service = :cloudinary
 
   # Enable/disable caching. By default caching is disabled.

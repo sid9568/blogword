@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     
   end
 
-  def upload_image_on_cloud img_url,folder_name
+  def upload_image_on_cloud image
     m = Cloudinary::Uploader.upload(img_url, :quality=>80,:folder => "/#{folder_name}/")
     url =m["url"]
   end

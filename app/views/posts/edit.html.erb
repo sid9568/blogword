@@ -68,13 +68,13 @@ input[type=submit]:hover {
 
 
     <label for="frname">Title</label>
-    <input type="text" id="fname" value="<%=%>" name="title" placeholder="">
+    <input type="text" id="fname" value="<%=@post.title%>" name="title" placeholder="">
 
     <label for="lname">Body</label>
-    <input type="text" id="lname" value=""  name="body" placeholder="">
+    <input type="text" id="lname" value="<%=@post.body%>"  name="body" placeholder="">
 
     <label for="lname">image</label>
-     <input type="file" id="myFile" value="@post.image" name="image">
+     <input type="file" id="myFile" value="<%=@post.image%>" name="image">
     
     
    <br><input type="submit" name="Submit" value="sumbit" onclick="myFunction()">
@@ -97,35 +97,19 @@ input[type=submit]:hover {
 
     var name = document.getElementById('fname').value;
     var nam = document.getElementById('lname').value;
-    var num = document.getElementById('mobile').value;
-    var em = document.getElementById('email').value;
-    var fab = document.getElementById('facebook').value;
+   
 
     if (name == "")
     {
       swal("Warning","Please enter valid title ","warning");
       return false;
     }
-    else (lname == "")
+    else (nam == "")
     {
       swal("Warning","Please enter valid title ","warning");
       return false;
     }
-    if (num == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
-    if (em == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
-    if (fab == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
+   
 
     else
     {

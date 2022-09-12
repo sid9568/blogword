@@ -67,14 +67,21 @@ input[type=submit]:hover {
      <%=form_for :friend,url: posts_create_path,:html=>{:id=>"submit", :multipart => true} do |f|%>
 
 
-    <label for="frname">Title</label>
-    <input type="text" id="fname" name="title" placeholder="">
+      <div class="row"> 
+        <div class="col-sm-12">
+        <div class="form-group">
+          <label>Title</label> 
+          <textarea type="text" id="summernote" name="title" placeholder="Enter Description"  class="form-control1" autocomplete="off" rows="4" style="border-radius:5px;"></textarea>
+        </div>
+         </div>
+         </div>
 
     <label for="lname">Body</label>
     <input type="text" id="lname" name="body" placeholder="">
 
     <label for="lname">image</label>
      <input type="file" id="myFile" name="image">
+    <label>
     
    <br><input type="submit" name="Submit" value="sumbit" onclick="myFunction()">
 
@@ -85,47 +92,70 @@ input[type=submit]:hover {
 </body>
 
 </html>
-<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js">
+  
+</script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript"> 
  
 
+      $('#summernote').summernote({
+        placeholder: 'Enter Description Here',
+        tabsize: 2,
+        height: 100,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'l', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+
+      $('#short').summernote({
+        placeholder: 'Enter Short Description Here',
+        tabsize: 2,
+        height: 100,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+      var file = ""
+      var readImageURL = function(event){
+      var componentId = event.target.id
+      var getImagePath = URL.createObjectURL(event.target.files[0]);
+      $('.'+componentId).attr("src",getImagePath );
+      file = event.target.files[0]
+   }
+
   function myFunction() 
   {
 
     var name = document.getElementById('fname').value;
-    var nam = document.getElementById('lname').value;
-    var num = document.getElementById('mobile').value;
-    var em = document.getElementById('email').value;
-    var fab = document.getElementById('facebook').value;
-
+    var b = document.getElementById('lname').value;
+    
     if (name == "")
     {
       swal("Warning","Please enter valid title ","warning");
       return false;
     }
-    else (lname == "")
+    if (b == "")
     {
       swal("Warning","Please enter valid title ","warning");
       return false;
     }
-    if (num == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
-    if (em == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
-    if (fab == "")
-    {
-      swal("Warning","Please enter valid title ","warning");
-      return false;
-    }
-
+    
     else
     {
    return true;
@@ -133,7 +163,9 @@ input[type=submit]:hover {
  
   alert(a);
 }
+
 </script>
+
 
 
 

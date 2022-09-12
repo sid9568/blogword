@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
     root "posts#index"
  
   get 'home/_header'
@@ -6,13 +7,13 @@ Rails.application.routes.draw do
   get "posts/show"=>"posts#show"
   get "posts/new"=>"posts#new"
   get "posts/edit/:id"=>"posts#edit"
-  get "/posts/edit", to: "posts#edit"
+  get "/posts/edit/:id", to: "posts#edit",as: "posts_edit"
   post "posts/create"=>"posts#create"
-  post "posts/update"=>"posts#update"
+  post "posts/update/:id"=>"posts#update",as: "posts_update"
   delete "posts/destroy" => "posts#destroy"
   get "posts/index"=>"posts#index" 
 
-    
+     
   
   #######comment##############
   get "comments/"=>"comments#show"
@@ -22,13 +23,18 @@ Rails.application.routes.draw do
   post "comments/create/:id"=>"comments#create",as: "comment_create"
   post "comments/update"=>"comments#update"
   delete "comments/destroy" => "comments#destroy"
-  get "comments/index"=>"comments#index" do
+  get "comments/index"=>"comments#index" 
    
 
 
-     resources :likes
+ post 'like/:id' => 'likes#create', as: "like_create"
+ post 'like/:id' => 'likes#dislike', as: "dislike_create"
+ 
+  resources :likes, only: [:create, :destroy]
+end
 
-   end
+
+   
   # end
 
 
@@ -36,4 +42,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-end
+

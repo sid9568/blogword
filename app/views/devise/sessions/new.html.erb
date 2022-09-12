@@ -1,0 +1,67 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>
+    .card{
+      top: -95px;
+    }
+  
+    </style>
+  </head>
+  <body>
+  
+  <section class="vh-100 bg-image"
+    style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                <form>
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">log in</p>
+  
+   <div class="containerr">                              
+      <form class="mx-1 mx-md-4">
+  <div>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+    <div class="field">
+      <%= f.label :password %><br />
+    
+     <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+  
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <%= render "devise/shared/links" %>
+  <% end %>
+  
+   </form>
+   </div> 
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  </body>
+  </html>

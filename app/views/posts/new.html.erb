@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  *{  
+  margin:0;
+  padding:0;
+}
+
+
+body{
+  
+  background-color:#f0f0fdsgf0;
+  font-family:helvetica;
+}
+input[type=text], select, textarea {
+    width: 93%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: -3px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    resize: vertical;
+  }
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+    width: 250px;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.containerr {
+   width: 406px;
+    max-width: 406px;
+    margin: 0 auto;
+
+}
+
+</style>
+</head>
+<body>
+
+
+
+<br><div class="containerr">
+     <%=form_for :friend,url: posts_create_path,:html=>{:id=>"submit", :multipart => true} do |f|%>
+
+
+    <label for="frname">Title</label>
+    <input type="text" id="fname" name="title" placeholder="">
+
+    <label for="lname">Body</label>
+    <input type="text" id="lname" name="body" placeholder="">
+
+    <label for="lname">image</label>
+     <input type="file" id="myFile" name="image">
+    
+   <br><input type="submit" name="Submit" value="sumbit" onclick="myFunction()">
+
+   <%end%>
+
+</div>
+
+</body>
+
+</html>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript"> 
+ 
+
+  function myFunction() 
+  {
+
+    var name = document.getElementById('fname').value;
+    var nam = document.getElementById('lname').value;
+    var num = document.getElementById('mobile').value;
+    var em = document.getElementById('email').value;
+    var fab = document.getElementById('facebook').value;
+
+    if (name == "")
+    {
+      swal("Warning","Please enter valid title ","warning");
+      return false;
+    }
+    else (lname == "")
+    {
+      swal("Warning","Please enter valid title ","warning");
+      return false;
+    }
+    if (num == "")
+    {
+      swal("Warning","Please enter valid title ","warning");
+      return false;
+    }
+    if (em == "")
+    {
+      swal("Warning","Please enter valid title ","warning");
+      return false;
+    }
+    if (fab == "")
+    {
+      swal("Warning","Please enter valid title ","warning");
+      return false;
+    }
+
+    else
+    {
+   return true;
+    }
+ 
+  alert(a);
+}
+</script>
+
+
+

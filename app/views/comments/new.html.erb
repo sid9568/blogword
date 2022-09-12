@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  *{  
+  margin:0;
+  padding:0;
+}
+
+
+body{
+  
+  background-color:#f0f0fdsgf0;
+  font-family:helvetica;
+}
+input[type=text], select, textarea {
+    width: 93%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: -3px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 11px;
+    resize: vertical;
+  }
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 2px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+    width: 250px;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.containerr {
+   width: 406px;
+    max-width: 406px;
+    margin: 0 auto;
+
+}
+
+</style>
+</head>
+<body>
+<div class="containerr">
+       <%=form_for :friend,url:   comment_create_path(id:@post.id),:html=>{:id=>"submit", :multipart => true} do |f|%>
+
+
+    <label for="frname">email</label>
+    <input type="text" id="fname" name="email" placeholder="">
+
+    <label for="lname">Comment</label>
+    <input type="text" id="lname" name="comment" placeholder="">
+
+
+   <br><input type="submit" name="Submit" value="sumbit" onclick="myFunction()">
+
+   <%end%>
+
+</div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<% @posts.each do |post| %>
+
+
+<div class="w3-content">
+
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+<%= image_tag post.image,style:"width:60%;min-height:200px"%></div>
+
+<div class="w3-twothird w3-container">
+  <h2><%= link_to post.title%></h2>
+  <p>
+   <%= link_to post.body%>
+  </p><br><br>
+   
+  <th><%= link_to "edit", posts_edit_path%></th>&nbsp&nbsp
+  <th><%= link_to "Destroy",  posts_destroy_path(id:post.id), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></th>
+   </tr>&nbsp&nbsp
+   <th><%= post.comments.count%>&nbsp <%= link_to "Comment",  comments_new_path%></th>&nbsp&nbsp 
+   <th><%= post.comments.count%>&nbsp <%= link_to "like",    comments_path%></th>&nbsp&nbsp 
+
+</div>
+</div>
+</div>
+ <%end%>
+</body>
+</html>
+<!-- ,style:"width:60%;min-height:200px"
+ -->
+
+
+
+
+

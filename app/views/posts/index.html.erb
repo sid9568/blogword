@@ -14,22 +14,30 @@
 <div class="w3-row w3-margin">
 
 <div class="w3-third">
-<%= image_tag post.image,style:"width:60%;min-height:200px"%></div>
+  <a href=""> <%=image_tag post.image.present? ? post.image : "https://res.cloudinary.com/learn-autism/image/upload/v1651053287/Category%20Image/cudlpoesuxyi8tn4hsrv.jpg",style:"width:60%;min-height:200px"%></a>
+
+ <%#= post.image.present? ?  post.image : "No image",style:"width:60%;min-height:200px"%>
+ </div>
+ 
 
 <div class="w3-twothird w3-container">
   <h2><%= link_to post.title%></h2>
   <p>
    <%= link_to post.body%>
   </p><br><br>
+
    
-  <th><%= link_to "edit", posts_edit_path%></th>&nbsp&nbsp
+  <th><%= link_to "edit", posts_edit_path(id:post.id)%></th>&nbsp&nbsp
   <th><%= link_to "Destroy",  posts_destroy_path(id:post.id), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
+                    turbo_confirm: "ye kya kr rha hai bhai?"
                   } %></th>
    </tr>&nbsp&nbsp
-   <th><%= post.comments.count%>&nbsp <%= link_to "Comment",  comments_new_path%></th>&nbsp&nbsp 
-   <th><%= post.comments.count%>&nbsp <%= link_to "like",    comments_path%></th>&nbsp&nbsp 
+
+   <th><%= post.comments.count%>&nbsp <%= link_to "Comment",  comment_new_path(id:post.id)%></th>&nbsp&nbsp 
+
+￼ <th><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Like'%></th>
+
 
 </div>
 </div>
@@ -43,4 +51,16 @@
 
 
 
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript"> 
+<%if flash[:success].present?%>
+ swal("Success","<%=flash[:success]%>","success")
+ <%elsif flash[:error].present?%>
+ swal("Error","<%=flash[:error]%>","error")
+ <%end%> 
+
+
+</script>
 

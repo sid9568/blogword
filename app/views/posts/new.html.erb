@@ -79,9 +79,9 @@ input[type=submit]:hover {
     <label for="lname">Body</label>
     <input type="text" id="lname" name="body" placeholder="">
 
-    <label for="lname">image</label>
-     <input type="file" id="myFile" name="image">
-    <label>
+    <label class="file"style="width:20px;padding-right:215px;">
+
+                    <input type="file" id='add-logo-tag' name="image" onchange='readImageURL(event)' aria-label="File browser example"  required>
     
    <br><input type="submit" name="Submit" value="sumbit" onclick="myFunction()">
 

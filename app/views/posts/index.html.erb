@@ -14,8 +14,8 @@
 <div class="w3-row w3-margin">
 
 <div class="w3-third">
-<a href=""> <%=image_tag post.image.present? ? post.image : "https://res.cloudinary.com/learn-autism/image/upload/v1651053287/Category%20Image/cudlpoesuxyi8tn4hsrv.jpg",style:"width:60%;min-height:200px"%></a>
- 
+<!--  <img src" <%#= @post.image.present? ? @post.image : "https://res.cloudinary.com/learn-autism/image/upload/v1651053287/Category%20Image/cudlpoesuxyi8tn4hsrv.jpg",style:"width:60%;min-height:200px"%>"
+ -->  <img src="<%= post.image.present? ? post.image : '/assets/mobile6.jpg'%>"class="img-tag add-logo-tag img1" style="height: 150px; width: 250px;padding-right:20px;"accept="image/png, image/jpeg" >
  </div>
  
 <div class="w3-twothird w3-container">

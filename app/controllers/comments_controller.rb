@@ -15,6 +15,10 @@ def create
     @comment = @post.comments.create!(email:params[:email],comment:params[:comment])
     redirect_to root_path
   end
+  def navbar
+  end
+    
+  end
 
   def destroy
       @post = Post.find(params[:post_id])
